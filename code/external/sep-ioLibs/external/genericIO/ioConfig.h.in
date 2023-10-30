@@ -1,0 +1,5 @@
+#cmakedefine USE_SEP
+#cmakedefine USE_RSF
+#cmakedefine USE_SEPVECTOR
+#cmakedefine USE_GCP
+#define DEFAULTIO "@DEFAULTIO@"

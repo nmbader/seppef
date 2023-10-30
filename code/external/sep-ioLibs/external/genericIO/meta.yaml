@@ -1,0 +1,25 @@
+package:
+    name: generic-io
+    version: "0.0.2"
+
+source:
+    git_url: http://cees-gitlab.Stanford.EDU/bob/genericIO.git
+
+requirements:
+    build:
+      - seplib-iolibs
+      - cmake
+      - pybind11
+      - tbb
+      - numpy
+    run:
+      - python
+
+
+# Note: tests are run when building the package, they are not accessible
+# in the installed package.
+
+about:
+    home: http://cees-gitlab.Stanford.EDU/bob/genericIO
+    license: BSD
+    summary: 'Library for dealing with regular cubes'

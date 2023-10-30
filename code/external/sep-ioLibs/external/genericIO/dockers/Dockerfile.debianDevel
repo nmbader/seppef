@@ -1,0 +1,28 @@
+From debian:latest
+MAINTAINER Bob Clapp <bob@sep.stanford.edu>
+RUN apt-get -y update &&\
+    apt-get -y  install g++ python3-numpy git make gcc libboost-all-dev  libboost-dev &&\
+    apt-get -y install  cmake python3-dev python3-pytest python3-numpy-dbg libtbb-dev  build-essential cmake git gcc g++ cmake libcurl4-openssl-dev libssl-dev make zlib1g-dev vim  python3-unittest2 flex && \
+  apt-get -y clean
+#RUN git clone https://github.com/google/crc32c.git /opt/google_p/crc32c &&\
+#cd /opt/google_p/crc32c && \
+#git submodule update --init && \
+#cmake -H. -Bbuild-output -DCMAKE_INSTALL_PREFIX=/opt/google &&\
+#cmake --build build-output &&\
+#cd build-output; make install
+#RUN git clone https://github.com/GoogleCloudPlatform/google-cloud-cpp.git /opt/google_p/gcloud &&  \
+#cd /opt/google_p/gcloud && \
+#git submodule update --init && \
+#cmake -H. -Bbuild-output -DCMAKE_INSTALL_PREFIX=/opt/google &&\
+#cd build-output; make -j 2 install
+
+
+RUN apt-get install -y wget python3-numba
+RUN  cd /tmp &&\
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &&\
+    sh Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda &&\
+   rm -rf /tmp/Miniconda3-latest-Linux-x86_64.sh
+
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
+#RUN cmake -DCMAKE_INSTALL_PREFIX=/opt/SEP -DCMAKE_CXX_FLAGS="-O3"  -DPYTHON_NUMPY_INCLUDE_DIR=/usr/lib/python3/dist-packages/numpy/core/include ../src

@@ -1,0 +1,4 @@
+[submodule "external/genericIO"]
+	path = external/genericIO
+	url = http://zapad.Stanford.EDU/bob/genericIO.git
+	ignore = dirty

@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  ioTest:
+    build: .
+    image: gcp-io-test
+    environment:
+      - projectID=YOUR_PROJECT_ID
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/gcpcred/gcptest.json
+      - region=YOUR_REGION
+    volumes:
+      - /lOCATION/OF/YOUR/APP/CREDENTIALS:/opt/gcpcred/gcptest.json
+
+    command: /opt/SEP/bin/ReadWriteGCP both  BUCKET/DIRECTORY  1000 1000 200

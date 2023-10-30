@@ -1,0 +1,8 @@
+To run this test you need to edit the docker-compose.yml file
+
+1) Replace YOUR_PROJECT_ID with your project ID
+2) Replace YOUR_REGION with your region (e.g. us-west1)
+3) Set yout location of your app credentials
+4) Fill in the bucket and directory you want to write to
+5) sudo docker-compose build
+6) sudo docker-compose up

@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## sepVector
+##
+##  
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\tThis module add sepVector to your environment"
+}
+
+module-whatis "(Category_______) Multi-dimensionality cube"
+module-whatis "(Name___________) sepVector"
+module-whatis "(Version________) 1.0"
+module-whatis "(Authorship_____) Bob"
+
+
+# for Tcl script use only
+set     version      "3.2.10"
+
+set vector /opt/SEP
+append-path PYTHONPATH $vector/lib/python
+prepend-path LD_LIBRARY_PATH $vector/lib

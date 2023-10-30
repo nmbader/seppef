@@ -1,0 +1,16 @@
+# defined since 2.8.3
+if (CMAKE_VERSION VERSION_LESS 2.8.3)
+  get_filename_component (CMAKE_CURRENT_LIST_DIR ${CMAKE_CURRENT_LIST_FILE} PATH)
+endif ()
+
+# Allows loading SEPlib settings from another project
+set (SEPlib_CONFIG_FILE "${CMAKE_CURRENT_LIST_FILE}")
+
+set (SEPlib_LIBRARY_DIRS @CMAKE_INSTALL_FULL_LIBDIR@)
+set (SEPlib_INCLUDE_DIRS @CMAKE_INSTALL_FULL_INCLUDEDIR@)
+
+include ("${CMAKE_CURRENT_LIST_DIR}/SEPlibLibraryDepends.cmake")
+
+if (CMAKE_VERSION VERSION_LESS 2.8.3)
+  set (CMAKE_CURRENT_LIST_DIR)
+endif ()

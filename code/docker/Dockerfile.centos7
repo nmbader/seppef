@@ -1,0 +1,26 @@
+From centos:7
+MAINTAINER Bob Clapp <bob@sep.stanford.edu>
+RUN yum -y install make wget git  &&\
+   yum -y clean all
+RUN yum -y install gcc-c++  gcc gcc-gfortran flex &&\
+  yum -y clean all
+RUN cd /tmp &&\ 
+   wget https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3.tar.gz &&\
+   cd /tmp/ &&\
+   tar xzf /tmp/cmake-3.14.3.tar.gz &&\
+   cd cmake-3.14.3 &&\
+  ./bootstrap &&\
+  make  -j 12 && \
+  make -j 12 install
+RUN yum -y install epel-release && \
+    yum -y update && \
+    yum -y clean all
+RUN yum -y install ninja-build  fftw-libs-single tbb-devel python3-devel boost-devel fftw-devel &&\
+    yum -y update && \
+    yum -y clean all
+RUN mkdir -p /opt/SEP/build
+ADD src /opt/SEP/src
+RUN cd /opt/SEP/build &&\
+     cmake -DCMAKE_INSTALL_PREFIX=/opt/SEP ../src/code &&\
+     make -j 12 && \
+     make install

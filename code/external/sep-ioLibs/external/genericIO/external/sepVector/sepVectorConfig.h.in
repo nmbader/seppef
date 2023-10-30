@@ -1,0 +1,5 @@
+#cmakedefine USE_DOUBLE
+#cmakedefine USE_COMPLEX
+#cmakedefine USE_INT
+#cmakedefine USE_BYTE
+#cmakedefine USE_SHORT

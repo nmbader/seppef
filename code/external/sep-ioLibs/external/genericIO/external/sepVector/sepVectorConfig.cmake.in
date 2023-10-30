@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+
+
+check_required_components(sepVector)
+
+if(NOT TARGET SEP:IO::sepVector)
+  include("${CMAKE_CURRENT_LIST_DIR}/sepVectorTargets.cmake")
+endif()

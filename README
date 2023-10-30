@@ -1,0 +1,32 @@
+The algorithm uses SEPlib data format and some SEPlib programs. SEPlib must be installed a priori and added to the PATH
+
+For installation:
+
+1) cd sepPef
+2) make install
+3) Add XXX/local/lib and XXX/local/lib64 to LD_LIBRARY_PATH 
+    e.g.    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:XXX/sepPef/local/lib
+    or      export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:XXX/sepPef/local/lib
+4) Set the DATAPATH variable
+    e.g     setenv DATAPATH XXX/sepPef/dat/
+    or      export DATAPATH=XXX/sepPef/dat/
+
+
+Create data and run denoising test:
+
+    make data
+
+Generate figures:
+
+    make figures
+
+Remove data and figures:
+
+    make clean
+
+Remove software and data (back to initial state)
+
+    make uninstall
+
+
+

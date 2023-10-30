@@ -1,0 +1,16 @@
+From debian:latest
+MAINTAINER Bob Clapp <bob@sep.stanford.edu>
+RUN apt-get -y update &&\
+    apt-get -y  install g++ python3-numpy git make gcc libboost-all-dev  libboost-dev &&\
+    apt-get -y install  cmake python3-dev python3-pytest python3-numpy-dbg libtbb-dev&& \
+  apt-get -y clean
+
+
+RUN apt-get -y update &&\
+    apt-get -y  install gfortran libfftw3-3 libfftw3-dev flex &&\
+  apt-get -y clean
+RUN git clone http://zapad.Stanford.EDU/SEP-external/sep-iolibs.git /opt/sep-iolibs/src && \
+    mkdir /opt/sep-iolibs/build &&\
+    cd /opt/sep-iolibs/build &&\
+    cmake  -DCMAKE_INSTALL_PREFIX=/opt/SEP ../src &&\
+    make  -j 8 install

@@ -1,0 +1,18 @@
+From centos:7
+MAINTAINER Bob Clapp <bob@sep.stanford.edu>
+RUN yum -y install make libX11-devel libXt-devel gcc git; yum -y clean all
+RUN yum -y install make automake autoconf libtool git libXt-devel \
+   libX11-devel libXaw-devel gcc-c++  gcc gcc-gfortran fftw-libs-single fftw-devel flex cmake; yum -y clean all
+RUN mkdir -p  /opt/SEP/build
+RUN git  clone http://zapad.stanford.edu/bob/SEPlib.git /opt/SEP/src &&\
+   cd /opt/SEP/build &&\
+   cmake -DCMAKE_INSTALL_PREFIX=/opt/SEP ../src &&\
+   make &&\
+   make install &&\
+   rm -rf /opt/SEP/build
+RUN yum -y install gcc gcc-c++ epel-release make git cmake  && \
+    yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
+    yum -y install  boost-devel boost-filesystem python36u-devel python36u-pip  python36u-pytest cmake3  && \
+   yum -y clean all
+RUN yum -y install tbb-devel  python36u-devel python36u-pip  python36u-pytest cmake3   &&yum -y clean all
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1

@@ -1,0 +1,8 @@
+build*
+*.sw*
+include
+RUN_THIS
+.DS_Store
+notebooks/*H
+notebooks/.ipynb_checkpoints
+__pycache__

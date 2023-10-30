@@ -1,0 +1,24 @@
+# Credits to jeanconn for the package https://binstar.org/jeanconn/fftw
+package:
+    name: seplib-iolibs
+    version: "9.0.0"
+
+source:
+    git_url: http://cees-gitlab.Stanford.EDU/SEP-external/sep-iolibs.git
+
+requirements:
+    build:
+      - cmake
+      - pybind11
+      - flex
+    run:
+      - python
+
+
+# Note: tests are run when building the package, they are not accessible
+# in the installed package.
+
+about:
+    home: http://cees-gitlab.Stanford.EDU/bob/sep-iolibs
+    license: BSD
+    summary: 'SEP IO libraries'

@@ -1,0 +1,19 @@
+From centos:7
+MAINTAINER Bob Clapp <bob@sep.stanford.edu>
+RUN yum -y install gcc gcc-c++ epel-release make git cmake  && \
+    yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
+    yum -y install tbb-devel  boost-devel boost-filesystem python36u-devel python36u-pip  python36u-pytest cmake3  && \
+   yum -y clean all
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
+RUN  /usr/bin/python3.6 -m pip install pytest
+RUN git clone https://github.com/pybind/pybind11.git /opt/pybind11/src && \
+  mkdir /opt/pybind11/build &&\
+  cd /opt/pybind11/build && \
+  cmake3 -DCMAKE_INSTALL_PREFIX=/usr ../src  &&\
+  make -j 4 install
+RUN pip3.6 install numpy
+RUN git  clone http://cees-gitlab.Stanford.EDU/bob/genericIO.git /opt/genericIO/src && \
+    mkdir /opt/genericIO/build &&\
+    cd /opt/genericIO/build &&\
+    cmake3  -DCMAKE_INSTALL_PREFIX=/opt/SEP ../src &&\
+    make -j 4 install

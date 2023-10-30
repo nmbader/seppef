@@ -1,0 +1,12 @@
+[submodule "external/hypercube"]
+	path = external/hypercube
+	url = http://cees-gitlab.Stanford.EDU/bob/hypercube.git
+	ignore=dirty
+[submodule "buffers"]
+	branch = master
+[submodule "sepVector"]
+	branch = master
+[submodule "external/python-solver"]
+	path = external/python-solver
+	url = http://cees-gitlab.Stanford.EDU/ettore88/python-solver.git
+	ignore=dirty
